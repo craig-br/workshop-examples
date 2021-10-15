@@ -1,5 +1,5 @@
 ---
-- name: Whitelist attacker
+- name: Allowlist attacker
   hosts: checkpoint
 
   vars:
@@ -26,7 +26,7 @@
         name: "asa-accept-{{ source_ip }}-to-{{ destination_ip }}"
         source: "asa-{{ source_ip }}"
         destination: "asa-{{ destination_ip }}"
-        action: drop
+        action: accept
 
     - name: Install policy
       cp_mgmt_install_policy:
